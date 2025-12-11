@@ -8,11 +8,22 @@ class Product extends Model
 {
 public function categories()
 {
-    return $this->belongsToMany(Category::class);
+    return $this->belongsToMany(Category::class, 'product_category');
 }
 
 public function reviews()
 {
     return $this->hasMany(Review::class);
 }
+
+public function orderItems()
+{
+    return $this->hasMany(OrderItem::class);
+}
+
+public function cartItems()
+{
+    return $this->hasMany(CartItem::class);
+}
+
 }
